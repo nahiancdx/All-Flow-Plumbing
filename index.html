@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Flow Plumbing, Inc. — 24/7 Plumbing Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            primary: '#2a1768',
+                            secondary: '#212529',
+                            tertiary: '#393939',
+                            muted: '#ffffff',
+                            base: '#000000',
+                            raised: '#da291c',
+                            raisedDark: '#b8211a',
+                            surface: '#f8f7fc',
+                            border: '#e8e5f0',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        * { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+        html { scroll-behavior: smooth; }
+        body { font-feature-settings: "cv11", "ss01"; }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-up { animation: fadeUp 0.6s ease-out forwards; }
+        .fade-up-delay-1 { animation-delay: 0.1s; opacity: 0; }
+        .fade-up-delay-2 { animation-delay: 0.2s; opacity: 0; }
+        .fade-up-delay-3 { animation-delay: 0.3s; opacity: 0; }
+        .fade-up-delay-4 { animation-delay: 0.4s; opacity: 0; }
+
+        .nav-scrolled {
+            background: rgba(255,255,255,0.95) !important;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(42,23,104,0.12);
+        }
+
+        .cta-pulse {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(218,41,28,0.4); }
+            50% { box-shadow: 0 0 0 12px rgba(218,41,28,0); }
+        }
+
+        .testimonial-card {
+            transition: all 300ms ease;
+        }
+        .testimonial-card:hover {
+            transform: scale(1.02);
+        }
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #f8f7fc; }
+        ::-webkit-scrollbar-thumb { background: #2a1768; border-radius: 3px; }
+    </style>
+</head>
+<body class="bg-white text-brand-secondary font-sans">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent">
+        <div class="max-w-7xl mx-auto px-5 md:px-8">
+            <div class="flex items-center justify-between h-16 md:h-20">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-2 group">
+                    <div class="w-9 h-9 bg-brand-raised rounded-lg flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                        <iconify-icon icon="lucide:droplets" class="text-white text-lg"></iconify-icon>
+                    </div>
+                    <div class="leading-tight">
+                        <span class="font-semibold text-brand-primary text-sm tracking-tight">All Flow</span>
+                        <span class="block text-[10px] text-brand-tertiary tracking-widest uppercase">Plumbing</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Nav -->
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#services" class="text-sm text-brand-tertiary hover:text-brand-primary transition-colors duration-150">Services</a>
+                    <a href="#about" class="text-sm text-brand-tertiary hover:text-brand-primary transition-colors duration-150">About</a>
+                    <a href="#reviews" class="text-sm text-brand-tertiary hover:text-brand-primary transition-colors duration-150">Reviews</a>
+                    <a href="#contact" class="text-sm text-brand-tertiary hover:text-brand-primary transition-colors duration-150">Contact</a>
+                </div>
+
+                <!-- CTA -->
+                <div class="flex items-center gap-3">
+                    <a href="tel:+15593085777" class="hidden md:flex items-center gap-2 text-sm font-medium text-brand-primary hover:text-brand-raised transition-colors duration-150">
+                        <iconify-icon icon="lucide:phone" class="text-base"></iconify-icon>
+                        (559) 308-5777
+                    </a>
+                    <a href="tel:+15593085777" class="bg-brand-raised hover:bg-brand-raisedDark text-white text-xs font-semibold tracking-wider uppercase px-5 py-2.5 rounded-lg transition-all duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-raised">
+                        Call Now
+                    </a>
+                    <!-- Mobile menu button -->
+                    <button id="menuBtn" class="md:hidden p-2 text-brand-primary" aria-label="Open menu">
+                        <iconify-icon icon="lucide:menu" class="text-xl"></iconify-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="md:hidden hidden bg-white border-t border-brand-border">
+            <div class="px-5 py-4 space-y-3">
+                <a href="#services" class="block text-sm text-brand-tertiary py-2 mobile-link">Services</a>
+                <a href="#about" class="block text-sm text-brand-tertiary py-2 mobile-link">About</a>
+                <a href="#reviews" class="block text-sm text-brand-tertiary py-2 mobile-link">Reviews</a>
+                <a href="#contact" class="block text-sm text-brand-tertiary py-2 mobile-link">Contact</a>
+                <a href="tel:+15593085777" class="flex items-center gap-2 text-sm font-medium text-brand-primary py-2">
+                    <iconify-icon icon="lucide:phone"></iconify-icon>
+                    (559) 308-5777
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center overflow-hidden">
+        <!-- Background Image -->
+        <div class="absolute inset-0">
+            <img src="https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=1920&q=80" alt="Professional plumbing service" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-r from-brand-primary/90 via-brand-primary/70 to-brand-primary/40"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-5 md:px-8 pt-24 pb-16 md:pt-32 md:pb-24 w-full">
+            <div class="max-w-2xl">
+                <!-- Badge -->
+                <div class="fade-up inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm text-white text-xs font-semibold tracking-widest uppercase px-4 py-2 rounded-full mb-6 border border-white/10">
+                    <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                    Open 24 Hours
+                </div>
+
+                <!-- Heading -->
+                <h1 class="fade-up fade-up-delay-1 text-4xl md:text-5xl lg:text-6xl font-semibold text-white leading-[1.08] tracking-tight mb-6">
+                    Your Trusted<br>
+                    <span class="text-brand-raised">Plumbing</span> Experts.
+                </h1>
+
+                <!-- Subtitle -->
+                <p class="fade-up fade-up-delay-2 text-lg md:text-xl text-white/80 font-light leading-relaxed mb-8 max-w-lg">
+                    Family-owned plumbing service serving the Central Valley. Fast response, fair pricing, and quality work — 24 hours a day, 7 days a week.
+                </p>
+
+                <!-- CTAs -->
+                <div class="fade-up fade-up-delay-3 flex flex-col sm:flex-row gap-3">
+                    <a href="tel:+15593085777" class="cta-pulse inline-flex items-center justify-center gap-2 bg-brand-raised hover:bg-brand-raisedDark text-white text-sm font-semibold tracking-wider uppercase px-8 py-4 rounded-lg transition-all duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+                        <iconify-icon icon="lucide:phone" class="text-base"></iconify-icon>
+                        (559) 308-5777
+                    </a>
+                    <a href="#services" class="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white text-sm font-medium tracking-wide px-8 py-4 rounded-lg border border-white/20 transition-all duration-150">
+                        Our Services
+                        <iconify-icon icon="lucide:arrow-down" class="text-sm"></iconify-icon>
+                    </a>
+                </div>
+
+                <!-- Trust badges -->
+                <div class="fade-up fade-up-delay-4 flex items-center gap-6 mt-10 pt-8 border-t border-white/15">
+                    <div class="text-center">
+                        <div class="text-2xl font-semibold text-white">4.9</div>
+                        <div class="flex gap-0.5 mt-1 justify-center">
+                            <iconify-icon icon="lucide:star" class="text-yellow-400 text-xs" style="--iconify-stroke:0"></iconify-icon>
+                            <iconify-icon icon="lucide:star" class="text-yellow-400 text-xs" style="--iconify-stroke:0"></iconify-icon>
+                            <iconify-icon icon="lucide:star" class="text-yellow-400 text-xs" style="--iconify-stroke:0"></iconify-icon>
+                            <iconify-icon icon="lucide:star" class="text-yellow-400 text-xs" style="--iconify-stroke:0"></iconify-icon>
+                            <iconify-icon icon="lucide:star" class="text-yellow-400 text-xs" style="--iconify-stroke:0"></iconify-icon>
+                        </div>
+                        <div class="text-[10px] text-white/60 mt-1">74 Reviews</div>
+                    </div>
+                    <div class="w-px h-10 bg-white/15"></div>
+                    <div class="text-center">
+                        <div class="text-2xl font-semibold text-white">24/7</div>
+                        <div class="text-[10px] text-white/60 mt-1 uppercase tracking-wider">Emergency Service</div>
+                    </div>
+                    <div class="w-px h-10 bg-white/15"></div>
+                    <div class="text-center">
+                        <div class="text-2xl font-semibold text-white">8+</div>
+                        <div class="text-[10px] text-white/60 mt-1 uppercase tracking-wider">Years Experience</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 md:py-28 bg-brand-surface">
+        <div class="max-w-7xl mx-auto px-5 md:px-8">
+            <!-- Section Header -->
+            <div class="text-center max-w-xl mx-auto mb-14">
+                <span class="text-xs font-semibold tracking-[0.2em] uppercase text-brand-raised">What We Do</span>
+                <h2 class="text-3xl md:text-4xl font-semibold text-brand-primary tracking-tight mt-3 mb-4">Our Services</h2>
+                <p class="text-brand-tertiary leading-relaxed">From routine repairs to emergency situations, All Flow Plumbing delivers reliable solutions when you need them most.</p>
+            </div>
+
+            <!-- Services Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                <!-- Service 1 -->
+                <div class="service-card bg-white rounded-lg p-7 border border-brand-border transition-all duration-300 cursor-default">
+                    <div class="w-11 h-11 bg-brand-primary/10 rounded-lg flex items-center justify-center mb-5">
+                        <iconify-icon icon="lucide:droplets" class="text-brand-primary text-xl"></iconify-icon>
+                    </div>
+                    <h3 class="text-lg font-semibold text-brand-primary tracking-tight mb-2">Drain Cleaning</h3>
+                    <p class="text-sm text-brand-tertiary leading-relaxed">Clogged drains cleared fast. Main lines, septic lines, and sewer backups handled promptly — even on weekends.</p>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="service-card bg-white rounded-lg p-7 border border-brand-border transition-all duration-300 cursor-default">
+                    <div class="w-11 h-11 bg-brand-raised/10 rounded-lg flex items-center justify-center mb-5">
+                        <iconify-icon icon="lucide:flame" class="text-brand-raised text-xl"></iconify-icon>
+                    </div>
+                    <h3 class="text-lg font-semibold text-brand-primary tracking-tight mb-2">Water Heater Services</h3>
+                    <p class="text-sm text-brand-tertiary leading-relaxed">Repair and replacement of all water heater types. Fast turnaround to get your hot water running again.</p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="service-card bg-white rounded-lg p-7 border border-brand-border transition-all duration-300 cursor-default">
+                    <div class="w-11 h-11 bg-brand-primary/10 rounded-lg flex items-center justify-center mb-5">
+                        <iconify-icon icon="lucide:pipe" class="text-brand-primary text-xl"></iconify-icon>
+                    </div>
+                    <h3 class="text-lg font-semibold text-brand-primary tracking-tight mb-2">Leak Repair</h3>
+                    <p class="text-sm text-brand-tertiary leading-relaxed">Leaking sinks, pipes, and fixtures identified and repaired quickly. We follow up to ensure the fix holds.</p>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="service-card bg-white rounded-lg p-7 border border-brand-border transition-all duration-300 cursor-default">
+                    <div class="w-11 h-11 bg-brand-raised/10 rounded-lg flex items-center justify-center mb-5">
+                        <iconify-icon icon="lucide:wrench" class="text-brand-raised text-xl"></iconify-icon>
+                    </div>
+                    <h3 class="text-lg font-semibold text-brand-primary tracking-tight mb-2">Sewer Repair</h3>
+                    <p class="text-sm text-brand-tertiary leading-relaxed">Professional sewer line repair and replacement. Thorough diagnostics and long-lasting solutions.</p>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="service-card bg-white rounded-lg p-7 border border-brand-border transition-all duration-300 cursor-default">
+                    <div class="w-11 h-11 bg-brand-primary/10 rounded-lg flex items-center justify-center mb-5">
+                        <iconify-icon icon="lucide:home" class="text-brand-primary text-xl"></iconify-icon>
+                    </div>
+                    <h3 class="text-lg font-semibold text-brand-primary tracking-tight mb-2">Fixture Installation</h3>
+                    <p class="text-sm text-brand-tertiary leading-relaxed">Faucets, garbage disposals, toilets, and appliance hookups installed with precision and care.</p>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="service-card bg-white rounded-lg p-7 border border-brand-border transition-all duration-300 cursor-default">
+                    <div class="w-11 h-11 bg-brand-raised/10 rounded-lg flex items-center justify-center mb-5">
+                        <iconify-icon icon="lucide:alert-triangle" class="text-brand-raised text-xl"></iconify-icon>
+                    </div>
+                    <h3 class="text-lg font-semibold text-brand-primary tracking-tight mb-2">Emergency Plumbing</h3>
+                    <p class="text-sm text-brand-tertiary leading-relaxed">24/7 emergency response. We come out any time — nights, weekends, and holidays. No extra runaround.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 md:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-5 md:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <!-- Image -->
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800&q=80" alt="Professional plumber at work" class="w-full h-[400px] md:h-[520px] object-cover rounded-xl">
+                    <!-- Floating card -->
+                    <div class="absolute -bottom-5 -right-2 md:-right-6 bg-white rounded-xl shadow-lg p-5 border border-brand-border">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 bg-brand-raised rounded-lg flex items-center justify-center">
+                                <iconify-icon icon="lucide:shield-check" class="text-white text-2xl"></iconify-icon>
+                            </div>
+                            <div>
+                                <div class="text-sm font-semibold text-brand-primary">Licensed & Insured</div>
+                                <div class="text-xs text-brand-tertiary">Family-Owned Since 2017</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Content -->
+                <div>
+                    <span class="text-xs font-semibold tracking-[0.2em] uppercase text-brand-raised">About Us</span>
+                    <h2 class="text-3xl md:text-4xl font-semibold text-brand-primary tracking-tight mt-3 mb-6">A Family Business<br>You Can Trust</h2>
+
+                    <p class="text-brand-tertiary leading-relaxed mb-5">
+                        All Flow Plumbing is a family-owned plumbing company serving Visalia, Exeter, Porterville, and the greater Central Valley area. Founded by Jimmy Smith, we've built our reputation on honesty, responsiveness, and doing the job right the first time.
+                    </p>
+                    <p class="text-brand-tertiary leading-relaxed mb-8">
+                        From our very first customer to the hundreds we serve today, our commitment has never changed — show up on time, communicate clearly, charge fairly, and treat every home like our own. That's why our customers keep coming back and referring us to their friends and family.
+                    </p>
+
+                    <!-- Values -->
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="flex items-start gap-3">
+                            <div class="mt-0.5 w-5 h-5 bg-brand-raised/10 rounded flex items-center justify-center flex-shrink-0">
+                                <iconify-icon icon="lucide:check" class="text-brand-raised text-xs"></iconify-icon>
+                            </div>
+                            <span class="text-sm text-brand-secondary font-medium">24/7 Availability</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="mt-0.5 w-5 h-5 bg-brand-raised/10 rounded flex items-center justify-center flex-shrink-0">
+                                <iconify-icon icon="lucide:check" class="text-brand-raised text-xs"></iconify-icon>
+                            </div>
+                            <span class="text-sm text-brand-secondary font-medium">Fair & Transparent Pricing</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="mt-0.5 w-5 h-5 bg-brand-raised/10 rounded flex items-center justify-center flex-shrink-0">
+                                <iconify-icon icon="lucide:check" class="text-brand-raised text-xs"></iconify-icon>
+                            </div>
+                            <span class="text-sm text-brand-secondary font-medium">Fast Response Time</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="mt-0.5 w-5 h-5 bg-brand-raised/10 rounded flex items-center justify-center flex-shrink-0">
+                                <iconify-icon icon="lucide:check" class="text-brand-raised text-xs"></iconify-icon>
+                            </div>
+                            <span class="text-sm text-brand-secondary font-medium">Follow-Up Care</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Banner -->
+    <section class="bg-brand-primary py-12 md:py-16">
+        <div class="max-w-7xl mx-auto px-5 md:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <div class="text-3xl md:text-4xl font-semibold text-white">4.9</div>
+                    <div class="text-xs text-white/60 mt-1 uppercase tracking-wider">Google Rating</div>
+                </div>
+                <div>
+                    <div class="text-3xl md:text-4xl font-semibold text-white">74+</div>
+                    <div class="text-xs text-white/60 mt-1 uppercase tracking-wider">5-Star Reviews</div>
+                </div>
+                <div>
+                    <div class="text-3xl md:text-4xl font-semibold text-white">8+</div>
+                    <div class="text-xs text-white/60 mt-1 uppercase tracking-wider">Years in Business</div>
+                </div>
+                <div>
+                    <div class="text-3xl md:text-4xl font-semibold text-white">24/7</div>
+                    <div class="text-xs text-white/60 mt-1 uppercase tracking-wider">Emergency Ready</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="py-20 md:py-28 bg-brand-surface">
+        <div class="max-w-7xl mx-auto px-5 md:px-8">
+            <!-- Section Header -->
+            <div class="text-center max-w-xl mx-auto mb-14">
+                <span class="text-xs font-semibold tracking-[0.2em] uppercase text-brand-raised">Testimonials</span>
+                <h2 class="text-3xl md:text-4xl font-semibold text-brand-primary tracking-tight mt-3 mb-4">What Our Customers Say</h2>
+                <p class="text-brand-tertiary leading-relaxed">Don't just take our word for it — hear from the homeowners and businesses we've served.</p>
+            </div>
+
+            <!-- Reviews Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                <!-- Review 1 -->
+                <div class="testimonial-card bg-white rounded-lg p-6 border border-brand-border">
+                    <div class="flex gap-0.5 mb-4">
+                        <iconify-icon icon="lucide:star" class="text-yellow-400 text-sm"></iconify-icon>
+                        <iconify-icon icon="lucide:star" class="text-yellow-400 text-sm"></iconify-icon>
+                        <iconify-icon icon="lucide:star" class="text-yellow-400 text-sm"></iconify-icon>
+                        <iconify-icon icon="lucide:star" class="text-yellow-400 text-sm"></iconify-icon>
+                        <iconify-icon icon="lucide:star" class="text-yellow-400 text-sm"></iconify-icon>
+                    </div>
+                    <p class="text-sm text-brand-tertiary leading-relaxed mb-5">"First time customer and very satisfied with results. Armando was outgoing and professional. Repair was completed in under one hour and charges were reasonable. I will recommend All Flow Plumbing without any hesitation."</p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-brand-border">
+                        <div class="w-9 h-9 bg-brand-primary/10 rounded-full flex items-center justify-center">
+                            <span class="text-xs font-semibold text-brand-primary">BB</span>
+                        </div>
+                        <div>
+                            <div class="text-sm font-medium text-brand-primary">Benjamin Bonilla</div>
+                            <div class="text-[11px] text-brand-tertiary">3 months ago</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="testimonial-card bg-white rounded-lg p-6 border border-brand-border">
+                    <div class="flex gap-0.5 mb-4">
+                        <iconify-icon icon="lucide:star" class="text-yellow-400 text-sm"></iconify-icon>
+                        <iconify-icon icon="lucide:star" class="text-yellow-400 text-sm"></iconify-icon>
+                        <iconify-icon icon="lucide:star" class="text-yellow-400 text-sm"></iconify-icon>
+                        <iconify-icon icon="lucide:star" class="text-yellow-400 text-sm"></iconify-icon>
+                        <iconify-icon icon="lucide:star" class="text-yellow-400 text-sm"></iconify-icon>
+                    </div>
+                    <p class="text-sm text-brand-tertiary leading-relaxed mb-5">"We had an emergency sewer situation and thank goodness for this company — they were out within an hour on a Saturday. Super nice, and there are not enough nice things to say about that kind of customer service."</p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-brand-border">
+                        <div class="w-9 h-9 bg-brand-raised/10 rounded-full flex items-center justify-center">
+                            <span class="text-xs font-semibold text-brand-raised">SW</span>
+                        </div>
+                        <div>
+                            <div class="text-sm font-medium text-brand-primary">Skye Woods</div>
+                            <div class="text-[11px] text-brand-tertiary">Local Guide · 1 year ago</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="testimonial-card bg-white rounded-lg p-6 border border-brand-border">
+                    <div class="flex gap-0.5 mb-4">
+                        <iconify-icon icon="lucide:star" class="text-yellow-400 text-sm"></iconify-icon>
+                        <iconify-icon icon="lucide:star" class="text-yellow-400 text-sm"></iconify-icon>
+                        <iconify-icon icon="lucide:star" class="text-yellow-400 text-sm"></iconify-icon>
+                        <iconify-icon icon="lucide:star" class="text-yellow-400 text-sm"></iconify-icon>
+                        <iconify-icon icon="lucide:star" class="text-yellow-400 text-sm"></iconify-icon>
+                    </div>
+                    <p class="text-sm text-brand-tertiary leading-relaxed mb-5">"Been with All Flow 8 years — since Jimmy was first starting out on his own. Took a leap of faith and never looked back. Always there when we've needed him. I can never say enough GOOD about this company!"</p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-brand-border">
+                        <div class="w-9 h-9 bg-brand-primary/10 rounded-full flex items-center justify-center">
+                            <span class="text-xs font-semibold text-brand-primary">DC</span>
+                        </div>
+                        <div>
+                            <div class="text-sm font-medium text-brand-primary">Debbie Coffman</div>
+                            <div class="text-[11px] text-brand-tertiary">7 months ago</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 4 -->
+                <div class="testimonial-card bg-white rounded-lg p-6 border border-brand-border">
+                    <div class="flex gap-0.5 mb-4">
+                        <iconify-icon icon="lucide:star" class="text-yellow-400 text-sm"></iconify-icon>
+                        <iconify-icon icon="lucide:star" class="text-yellow-400 text-sm"></iconify-icon>
+                        <iconify-icon icon="lucide:star" class="text-yellow-400 text-sm"></iconify-icon>
+                        <iconify-icon icon="lucide:star" class="text-yellow-400 text-sm"></iconify-icon>
+                        <iconify-icon icon="lucide:star" class="text-yellow-400 text-sm"></iconify-icon>
+                    </div>
+                    <p class="text-sm text-brand-tertiary leading-relaxed mb-5">"Jim was extremely helpful with our emergency. He was timely, courteous, responsive and professional. He took care of our problem as economically as possible — even came on his day off! I will absolutely use All Flow again."</p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-brand-border">
+                        <div class="w-9 h-9 bg-brand-raised/10 rounded-full flex items-center justify-center">
+                            <span class="text-xs font-semibold text-brand-raised">JBS</span>
+                        </div>
+                        <div>
+                            <div class="text-sm font-medium text-brand-primary">Jennifer Brown Smith</div>
+                            <div class="text-[11px] text-brand-tertiary">3 years ago</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 5 -->
+                <div class="testimonial-card bg-white rounded-lg p-6 border border-brand-border">
+                    <div class="flex gap-0.5 mb-4">
+                        <iconify-icon icon="lucide:star" class="text-yellow-400 text-sm"></iconify-icon>
+                        <iconify-icon icon="lucide:star" class="text-yellow-400 text-sm"></iconify-icon>
+                        <iconify-icon icon="lucide:star" class="text-yellow-400 text-sm"></iconify-icon>
+                        <iconify-icon icon="lucide:star" class="text-yellow-400 text-sm"></iconify-icon>
+                        <iconify-icon icon="lucide:star" class="text-yellow-400 text-sm"></iconify-icon>
+                    </div>
+                    <p class="text-sm text-brand-tertiary leading-relaxed mb-5">"Great service, fast and friendly. Identified and repaired my backed up main line within an hour! Used them at my rental in Visalia and now at my home in Exeter — they were my first call."</p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-brand-border">
+                        <div class="w-9 h-9 bg-brand-primary/10 rounded-full flex items-center justify-center">
+                            <span class="text-xs font-semibold text-brand-primary">AB</span>
+                        </div>
+                        <div>
+                            <div class="text-sm font-medium text-brand-primary">Amber Beach</div>
+                            <div class="text-[11px] text-brand-tertiary">Local Guide · 6 months ago</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 6 -->
+                <div class="testimonial-card bg-white rounded-lg p-6 border border-brand-border">
+                    <div class="flex gap-0.5 mb-4">
+                        <iconify-icon icon="lucide:star" class="text-yellow-400 text-sm"></iconify-icon>
+                        <iconify-icon icon="lucide:star" class="text-yellow-400 text-sm"></iconify-icon>
+                        <iconify-icon icon="lucide:star" class="text-yellow-400 text-sm"></iconify-icon>
+                        <iconify-icon icon="lucide:star" class="text-yellow-400 text-sm"></iconify-icon>
+                        <iconify-icon icon="lucide:star" class="text-yellow-400 text-sm"></iconify-icon>
+                    </div>
+                    <p class="text-sm text-brand-tertiary leading-relaxed mb-5">"Jimmy is by far the best plumber in town. Very knowledgeable, professional, and easy to talk to. Not the type to take advantage of you or hike prices up. Each time I am very pleased!"</p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-brand-border">
+                        <div class="w-9 h-9 bg-brand-raised/10 rounded-full flex items-center justify-center">
+                            <span class="text-xs font-semibold text-brand-raised">BB</span>
+                        </div>
+                        <div>
+                            <div class="text-sm font-medium text-brand-primary">Breana Bettencourt</div>
+                            <div class="text-[11px] text-brand-tertiary">5 years ago</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- More reviews summary -->
+            <div class="mt-10 text-center">
+                <div class="inline-flex flex-wrap justify-center gap-3">
+                    <span class="bg-white text-xs text-brand-tertiary px-3 py-1.5 rounded-full border border-brand-border">leaking sink repair <span class="text-brand-primary font-medium">2</span></span>
+                    <span class="bg-white text-xs text-brand-tertiary px-3 py-1.5 rounded-full border border-brand-border">fast repair <span class="text-brand-primary font-medium">4</span></span>
+                    <span class="bg-white text-xs text-brand-tertiary px-3 py-1.5 rounded-full border border-brand-border">affordable <span class="text-brand-primary font-medium">8</span></span>
+                    <span class="bg-white text-xs text-brand-tertiary px-3 py-1.5 rounded-full border border-brand-border">pleasant staff <span class="text-brand-primary font-medium">7</span></span>
+                    <span class="bg-white text-xs text-brand-tertiary px-3 py-1.5 rounded-full border border-brand-border">quality of work <span class="text-brand-primary font-medium">5</span></span>
+                    <span class="bg-white text-xs text-brand-tertiary px-3 py-1.5 rounded-full border border-brand-border">water heater repair <span class="text-brand-primary font-medium">3</span></span>
+                    <span class="bg-white text-xs text-brand-tertiary px-3 py-1.5 rounded-full border border-brand-border">punctuality <span class="text-brand-primary font-medium">4</span></span>
+                    <span class="bg-white text-xs text-brand-tertiary px-3 py-1.5 rounded-full border border-brand-border">responsiveness <span class="text-brand-primary font-medium">3</span></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contact" class="relative py-20 md:py-28 overflow-hidden">
+        <div class="absolute inset-0">
+            <img src="https://images.unsplash.com/photo-1585128903994-9788298932a4?w=1920&q=80" alt="Plumbing tools" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-brand-primary/90"></div>
+        </div>
+
+        <div class="relative z-10 max-w-3xl mx-auto px-5 md:px-8 text-center">
+            <div class="inline-flex items-center gap-2 bg-white/10 text-white text-xs font-semibold tracking-widest uppercase px-4 py-2 rounded-full mb-6 border border-white/10">
+                <iconify-icon icon="lucide:phone-call" class="text-sm"></iconify-icon>
+                Available Now
+            </div>
+
+            <h2 class="text-3xl md:text-5xl font-semibold text-white tracking-tight mb-5">Need a Plumber?<br>Call Jimmy Today.</h2>
+            <p class="text-lg text-white/70 font-light leading-relaxed mb-10 max-w-lg mx-auto">
+                Whether it's an emergency or a scheduled repair, All Flow Plumbing is ready to help. One call — that's all it takes.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="tel:+15593085777" class="cta-pulse inline-flex items-center justify-center gap-2 bg-brand-raised hover:bg-brand-raisedDark text-white text-sm font-semibold tracking-wider uppercase px-8 py-4 rounded-lg transition-all duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+                    <iconify-icon icon="lucide:phone" class="text-base"></iconify-icon>
+                    (559) 308-5777
+                </a>
+                <a href="https://allflow.plumbing" target="_blank" class="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white text-sm font-medium tracking-wide px-8 py-4 rounded-lg border border-white/20 transition-all duration-150">
+                    Visit Website
+                    <iconify-icon icon="lucide:external-link" class="text-sm"></iconify-icon>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Areas -->
+    <section class="py-16 bg-white border-t border-brand-border">
+        <div class="max-w-7xl mx-auto px-5 md:px-8">
+            <div class="text-center mb-8">
+                <span class="text-xs font-semibold tracking-[0.2em] uppercase text-brand-raised">Coverage</span>
+                <h2 class="text-2xl font-semibold text-brand-primary tracking-tight mt-2">Service Areas</h2>
+            </div>
+            <div class="flex flex-wrap justify-center gap-3">
+                <span class="bg-brand-surface text-sm text-brand-primary font-medium px-4 py-2 rounded-lg border border-brand-border">Visalia</span>
+                <span class="bg-brand-surface text-sm text-brand-primary font-medium px-4 py-2 rounded-lg border border-brand-border">Exeter</span>
+                <span class="bg-brand-surface text-sm text-brand-primary font-medium px-4 py-2 rounded-lg border border-brand-border">Porterville</span>
+                <span class="bg-brand-surface text-sm text-brand-primary font-medium px-4 py-2 rounded-lg border border-brand-border">Tulare</span>
+                <span class="bg-brand-surface text-sm text-brand-primary font-medium px-4 py-2 rounded-lg border border-brand-border">Hanford</span>
+                <span class="bg-brand-surface text-sm text-brand-primary font-medium px-4 py-2 rounded-lg border border-brand-border">Lemoore</span>
+                <span class="bg-brand-surface text-sm text-brand-primary font-medium px-4 py-2 rounded-lg border border-brand-border">Farmersville</span>
+                <span class="bg-brand-surface text-sm text-brand-primary font-medium px-4 py-2 rounded-lg border border-brand-border">Lindsay</span>
+                <span class="bg-brand-surface text-sm text-brand-primary font-medium px-4 py-2 rounded-lg border border-brand-border">Woodlake</span>
+                <span class="bg-brand-surface text-sm text-brand-primary font-medium px-4 py-2 rounded-lg border border-brand-border">& Surrounding Areas</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-base py-12 md:py-16">
+        <div class="max-w-7xl mx-auto px-5 md:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
+                <!-- Brand -->
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-9 h-9 bg-brand-raised rounded-lg flex items-center justify-center">
+                            <iconify-icon icon="lucide:droplets" class="text-white text-lg"></iconify-icon>
+                        </div>
+                        <div class="leading-tight">
+                            <span class="font-semibold text-white text-sm tracking-tight">All Flow</span>
+                            <span class="block text-[10px] text-zinc-500 tracking-widest uppercase">Plumbing, Inc.</span>
+                        </div>
+                    </div>
+                    <p class="text-sm text-zinc-500 leading-relaxed max-w-xs">Family-owned plumbing company serving California's Central Valley. Available 24/7 for all your plumbing needs.</p>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="text-xs font-semibold text-zinc-400 tracking-[0.15em] uppercase mb-4">Contact</h4>
+                    <div class="space-y-3">
+                        <a href="tel:+15593085777" class="flex items-center gap-2 text-sm text-zinc-400 hover:text-white transition-colors duration-150">
+                            <iconify-icon icon="lucide:phone" class="text-brand-raised"></iconify-icon>
+                            (559) 308-5777
+                        </a>
+                        <a href="https://allflow.plumbing" target="_blank" class="flex items-center gap-2 text-sm text-zinc-400 hover:text-white transition-colors duration-150">
+                            <iconify-icon icon="lucide:globe" class="text-brand-raised"></iconify-icon>
+                            allflow.plumbing
+                        </a>
+                        <div class="flex items-center gap-2 text-sm text-zinc-400">
+                            <iconify-icon icon="lucide:clock" class="text-brand-raised"></iconify-icon>
+                            Open 24 Hours
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-xs font-semibold text-zinc-400 tracking-[0.15em] uppercase mb-4">Quick Links</h4>
+                    <div class="space-y-3">
+                        <a href="#services" class="block text-sm text-zinc-400 hover:text-white transition-colors duration-150">Services</a>
+                        <a href="#about" class="block text-sm text-zinc-400 hover:text-white transition-colors duration-150">About Us</a>
+                        <a href="#reviews" class="block text-sm text-zinc-400 hover:text-white transition-colors duration-150">Reviews</a>
+                        <a href="#contact" class="block text-sm text-zinc-400 hover:text-white transition-colors duration-150">Contact</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom bar -->
+            <div class="pt-8 border-t border-zinc-800 flex flex-col md:flex-row items-center justify-between gap-4">
+                <p class="text-xs text-zinc-600">&copy; 2025 All Flow Plumbing, Inc. All rights reserved.</p>
+                <p class="text-xs text-zinc-600">Made By <a href="https://wa.me/+8801911739472" class="text-zinc-400 hover:text-white transition-colors duration-150 underline underline-offset-2">Ibne Nahian</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating CTA (Mobile) -->
+    <div id="floatingCta" class="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-white border-t border-brand-border px-5 py-3 translate-y-full transition-transform duration-300">
+        <a href="tel:+15593085777" class="flex items-center justify-center gap-2 w-full bg-brand-raised hover:bg-brand-raisedDark text-white text-sm font-semibold tracking-wider uppercase py-3.5 rounded-lg transition-colors duration-150">
+            <iconify-icon icon="lucide:phone" class="text-base"></iconify-icon>
+            Call (559) 308-5777
+        </a>
+    </div>
+
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        const floatingCta = document.getElementById('floatingCta');
+        let lastScroll = 0;
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+
+            // Navbar background
+            if (currentScroll > 60) {
+                navbar.classList.add('nav-scrolled');
+            } else {
+                navbar.classList.remove('nav-scrolled');
+            }
+
+            // Floating CTA on mobile
+            if (currentScroll > 500) {
+                floatingCta.style.transform = 'translateY(0)';
+            } else {
+                floatingCta.style.transform = 'translateY(100%)';
+            }
+
+            lastScroll = currentScroll;
+        });
+
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        let menuOpen = false;
+
+        menuBtn.addEventListener('click', () => {
+            menuOpen = !menuOpen;
+            if (menuOpen) {
+                mobileMenu.classList.remove('hidden');
+                menuBtn.innerHTML = '<iconify-icon icon="lucide:x" class="text-xl"></iconify-icon>';
+                menuBtn.setAttribute('aria-label', 'Close menu');
+            } else {
+                mobileMenu.classList.add('hidden');
+                menuBtn.innerHTML = '<iconify-icon icon="lucide:menu" class="text-xl"></iconify-icon>';
+                menuBtn.setAttribute('aria-label', 'Open menu');
+            }
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuOpen = false;
+                menuBtn.innerHTML = '<iconify-icon icon="lucide:menu" class="text-xl"></iconify-icon>';
+                menuBtn.setAttribute('aria-label', 'Open menu');
+            });
+        });
+
+        // Smooth scroll offset for fixed nav
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    const offset = 80;
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                    window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -40px 0px' };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe service cards and testimonial cards
+        document.querySelectorAll('.service-card, .testimonial-card').forEach((el, i) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = `opacity 0.5s ease ${i * 0.08}s, transform 0.5s ease ${i * 0.08}s`;
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
