@@ -47,12 +47,6 @@
         .fade-up-delay-3 { animation-delay: 0.3s; opacity: 0; }
         .fade-up-delay-4 { animation-delay: 0.4s; opacity: 0; }
 
-        .nav-scrolled {
-            background: rgba(255,255,255,0.95) !important;
-            backdrop-filter: blur(12px);
-            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-        }
-
         .service-card:hover {
             transform: translateY(-4px);
             box-shadow: 0 12px 32px rgba(42,23,104,0.12);
@@ -80,8 +74,8 @@
 </head>
 <body class="bg-white text-brand-secondary font-sans">
 
-    <!-- Navigation -->
-    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent">
+    <!-- Navigation — fixed solid background -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-brand-primary">
         <div class="max-w-7xl mx-auto px-5 md:px-8">
             <div class="flex items-center justify-between h-16 md:h-20">
                 <!-- Logo -->
@@ -90,22 +84,22 @@
                         <iconify-icon icon="lucide:droplets" class="text-white text-lg"></iconify-icon>
                     </div>
                     <div class="leading-tight">
-                        <span class="font-semibold text-brand-primary text-sm tracking-tight">All Flow</span>
-                        <span class="block text-[10px] text-brand-tertiary tracking-widest uppercase">Plumbing</span>
+                        <span class="font-semibold text-white text-sm tracking-tight">All Flow</span>
+                        <span class="block text-[10px] text-white/50 tracking-widest uppercase">Plumbing</span>
                     </div>
                 </a>
 
                 <!-- Desktop Nav -->
                 <div class="hidden md:flex items-center gap-8">
-                    <a href="#services" class="text-sm text-brand-tertiary hover:text-brand-primary transition-colors duration-150">Services</a>
-                    <a href="#about" class="text-sm text-brand-tertiary hover:text-brand-primary transition-colors duration-150">About</a>
-                    <a href="#reviews" class="text-sm text-brand-tertiary hover:text-brand-primary transition-colors duration-150">Reviews</a>
-                    <a href="#contact" class="text-sm text-brand-tertiary hover:text-brand-primary transition-colors duration-150">Contact</a>
+                    <a href="#services" class="text-sm text-white/70 hover:text-white transition-colors duration-150">Services</a>
+                    <a href="#about" class="text-sm text-white/70 hover:text-white transition-colors duration-150">About</a>
+                    <a href="#reviews" class="text-sm text-white/70 hover:text-white transition-colors duration-150">Reviews</a>
+                    <a href="#contact" class="text-sm text-white/70 hover:text-white transition-colors duration-150">Contact</a>
                 </div>
 
                 <!-- CTA -->
                 <div class="flex items-center gap-3">
-                    <a href="tel:+15593085777" class="hidden md:flex items-center gap-2 text-sm font-medium text-brand-primary hover:text-brand-raised transition-colors duration-150">
+                    <a href="tel:+15593085777" class="hidden md:flex items-center gap-2 text-sm font-medium text-white hover:text-white/80 transition-colors duration-150">
                         <iconify-icon icon="lucide:phone" class="text-base"></iconify-icon>
                         (559) 308-5777
                     </a>
@@ -113,7 +107,7 @@
                         Call Now
                     </a>
                     <!-- Mobile menu button -->
-                    <button id="menuBtn" class="md:hidden p-2 text-brand-primary" aria-label="Open menu">
+                    <button id="menuBtn" class="md:hidden p-2 text-white" aria-label="Open menu">
                         <iconify-icon icon="lucide:menu" class="text-xl"></iconify-icon>
                     </button>
                 </div>
@@ -121,13 +115,13 @@
         </div>
 
         <!-- Mobile Menu -->
-        <div id="mobileMenu" class="md:hidden hidden bg-white border-t border-brand-border">
+        <div id="mobileMenu" class="md:hidden hidden bg-brand-primary border-t border-white/10">
             <div class="px-5 py-4 space-y-3">
-                <a href="#services" class="block text-sm text-brand-tertiary py-2 mobile-link">Services</a>
-                <a href="#about" class="block text-sm text-brand-tertiary py-2 mobile-link">About</a>
-                <a href="#reviews" class="block text-sm text-brand-tertiary py-2 mobile-link">Reviews</a>
-                <a href="#contact" class="block text-sm text-brand-tertiary py-2 mobile-link">Contact</a>
-                <a href="tel:+15593085777" class="flex items-center gap-2 text-sm font-medium text-brand-primary py-2">
+                <a href="#services" class="block text-sm text-white/70 py-2 mobile-link hover:text-white">Services</a>
+                <a href="#about" class="block text-sm text-white/70 py-2 mobile-link hover:text-white">About</a>
+                <a href="#reviews" class="block text-sm text-white/70 py-2 mobile-link hover:text-white">Reviews</a>
+                <a href="#contact" class="block text-sm text-white/70 py-2 mobile-link hover:text-white">Contact</a>
+                <a href="tel:+15593085777" class="flex items-center gap-2 text-sm font-medium text-white py-2">
                     <iconify-icon icon="lucide:phone"></iconify-icon>
                     (559) 308-5777
                 </a>
@@ -137,7 +131,6 @@
 
     <!-- Hero Section -->
     <section class="relative min-h-screen flex items-center overflow-hidden">
-        <!-- Background Image -->
         <div class="absolute inset-0">
             <img src="https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=1920&q=80" alt="Professional plumbing service" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-gradient-to-r from-brand-primary/90 via-brand-primary/70 to-brand-primary/40"></div>
@@ -145,24 +138,20 @@
 
         <div class="relative z-10 max-w-7xl mx-auto px-5 md:px-8 pt-24 pb-16 md:pt-32 md:pb-24 w-full">
             <div class="max-w-2xl">
-                <!-- Badge -->
                 <div class="fade-up inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm text-white text-xs font-semibold tracking-widest uppercase px-4 py-2 rounded-full mb-6 border border-white/10">
                     <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
                     Open 24 Hours
                 </div>
 
-                <!-- Heading -->
                 <h1 class="fade-up fade-up-delay-1 text-4xl md:text-5xl lg:text-6xl font-semibold text-white leading-[1.08] tracking-tight mb-6">
                     Your Trusted<br>
                     <span class="text-brand-raised">Plumbing</span> Experts.
                 </h1>
 
-                <!-- Subtitle -->
                 <p class="fade-up fade-up-delay-2 text-lg md:text-xl text-white/80 font-light leading-relaxed mb-8 max-w-lg">
                     Family-owned plumbing service serving the Central Valley. Fast response, fair pricing, and quality work — 24 hours a day, 7 days a week.
                 </p>
 
-                <!-- CTAs -->
                 <div class="fade-up fade-up-delay-3 flex flex-col sm:flex-row gap-3">
                     <a href="tel:+15593085777" class="cta-pulse inline-flex items-center justify-center gap-2 bg-brand-raised hover:bg-brand-raisedDark text-white text-sm font-semibold tracking-wider uppercase px-8 py-4 rounded-lg transition-all duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
                         <iconify-icon icon="lucide:phone" class="text-base"></iconify-icon>
@@ -174,16 +163,15 @@
                     </a>
                 </div>
 
-                <!-- Trust badges -->
                 <div class="fade-up fade-up-delay-4 flex items-center gap-6 mt-10 pt-8 border-t border-white/15">
                     <div class="text-center">
                         <div class="text-2xl font-semibold text-white">4.9</div>
                         <div class="flex gap-0.5 mt-1 justify-center">
-                            <iconify-icon icon="lucide:star" class="text-yellow-400 text-xs" style="--iconify-stroke:0"></iconify-icon>
-                            <iconify-icon icon="lucide:star" class="text-yellow-400 text-xs" style="--iconify-stroke:0"></iconify-icon>
-                            <iconify-icon icon="lucide:star" class="text-yellow-400 text-xs" style="--iconify-stroke:0"></iconify-icon>
-                            <iconify-icon icon="lucide:star" class="text-yellow-400 text-xs" style="--iconify-stroke:0"></iconify-icon>
-                            <iconify-icon icon="lucide:star" class="text-yellow-400 text-xs" style="--iconify-stroke:0"></iconify-icon>
+                            <iconify-icon icon="lucide:star" class="text-yellow-400 text-xs"></iconify-icon>
+                            <iconify-icon icon="lucide:star" class="text-yellow-400 text-xs"></iconify-icon>
+                            <iconify-icon icon="lucide:star" class="text-yellow-400 text-xs"></iconify-icon>
+                            <iconify-icon icon="lucide:star" class="text-yellow-400 text-xs"></iconify-icon>
+                            <iconify-icon icon="lucide:star" class="text-yellow-400 text-xs"></iconify-icon>
                         </div>
                         <div class="text-[10px] text-white/60 mt-1">74 Reviews</div>
                     </div>
@@ -205,16 +193,13 @@
     <!-- Services Section -->
     <section id="services" class="py-20 md:py-28 bg-brand-surface">
         <div class="max-w-7xl mx-auto px-5 md:px-8">
-            <!-- Section Header -->
             <div class="text-center max-w-xl mx-auto mb-14">
                 <span class="text-xs font-semibold tracking-[0.2em] uppercase text-brand-raised">What We Do</span>
                 <h2 class="text-3xl md:text-4xl font-semibold text-brand-primary tracking-tight mt-3 mb-4">Our Services</h2>
                 <p class="text-brand-tertiary leading-relaxed">From routine repairs to emergency situations, All Flow Plumbing delivers reliable solutions when you need them most.</p>
             </div>
 
-            <!-- Services Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-                <!-- Service 1 -->
                 <div class="service-card bg-white rounded-lg p-7 border border-brand-border transition-all duration-300 cursor-default">
                     <div class="w-11 h-11 bg-brand-primary/10 rounded-lg flex items-center justify-center mb-5">
                         <iconify-icon icon="lucide:droplets" class="text-brand-primary text-xl"></iconify-icon>
@@ -223,7 +208,6 @@
                     <p class="text-sm text-brand-tertiary leading-relaxed">Clogged drains cleared fast. Main lines, septic lines, and sewer backups handled promptly — even on weekends.</p>
                 </div>
 
-                <!-- Service 2 -->
                 <div class="service-card bg-white rounded-lg p-7 border border-brand-border transition-all duration-300 cursor-default">
                     <div class="w-11 h-11 bg-brand-raised/10 rounded-lg flex items-center justify-center mb-5">
                         <iconify-icon icon="lucide:flame" class="text-brand-raised text-xl"></iconify-icon>
@@ -232,7 +216,6 @@
                     <p class="text-sm text-brand-tertiary leading-relaxed">Repair and replacement of all water heater types. Fast turnaround to get your hot water running again.</p>
                 </div>
 
-                <!-- Service 3 -->
                 <div class="service-card bg-white rounded-lg p-7 border border-brand-border transition-all duration-300 cursor-default">
                     <div class="w-11 h-11 bg-brand-primary/10 rounded-lg flex items-center justify-center mb-5">
                         <iconify-icon icon="lucide:pipe" class="text-brand-primary text-xl"></iconify-icon>
@@ -241,7 +224,6 @@
                     <p class="text-sm text-brand-tertiary leading-relaxed">Leaking sinks, pipes, and fixtures identified and repaired quickly. We follow up to ensure the fix holds.</p>
                 </div>
 
-                <!-- Service 4 -->
                 <div class="service-card bg-white rounded-lg p-7 border border-brand-border transition-all duration-300 cursor-default">
                     <div class="w-11 h-11 bg-brand-raised/10 rounded-lg flex items-center justify-center mb-5">
                         <iconify-icon icon="lucide:wrench" class="text-brand-raised text-xl"></iconify-icon>
@@ -250,7 +232,6 @@
                     <p class="text-sm text-brand-tertiary leading-relaxed">Professional sewer line repair and replacement. Thorough diagnostics and long-lasting solutions.</p>
                 </div>
 
-                <!-- Service 5 -->
                 <div class="service-card bg-white rounded-lg p-7 border border-brand-border transition-all duration-300 cursor-default">
                     <div class="w-11 h-11 bg-brand-primary/10 rounded-lg flex items-center justify-center mb-5">
                         <iconify-icon icon="lucide:home" class="text-brand-primary text-xl"></iconify-icon>
@@ -259,7 +240,6 @@
                     <p class="text-sm text-brand-tertiary leading-relaxed">Faucets, garbage disposals, toilets, and appliance hookups installed with precision and care.</p>
                 </div>
 
-                <!-- Service 6 -->
                 <div class="service-card bg-white rounded-lg p-7 border border-brand-border transition-all duration-300 cursor-default">
                     <div class="w-11 h-11 bg-brand-raised/10 rounded-lg flex items-center justify-center mb-5">
                         <iconify-icon icon="lucide:alert-triangle" class="text-brand-raised text-xl"></iconify-icon>
@@ -275,10 +255,8 @@
     <section id="about" class="py-20 md:py-28 bg-white">
         <div class="max-w-7xl mx-auto px-5 md:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-                <!-- Image -->
                 <div class="relative">
                     <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800&q=80" alt="Professional plumber at work" class="w-full h-[400px] md:h-[520px] object-cover rounded-xl">
-                    <!-- Floating card -->
                     <div class="absolute -bottom-5 -right-2 md:-right-6 bg-white rounded-xl shadow-lg p-5 border border-brand-border">
                         <div class="flex items-center gap-3">
                             <div class="w-12 h-12 bg-brand-raised rounded-lg flex items-center justify-center">
@@ -292,7 +270,6 @@
                     </div>
                 </div>
 
-                <!-- Content -->
                 <div>
                     <span class="text-xs font-semibold tracking-[0.2em] uppercase text-brand-raised">About Us</span>
                     <h2 class="text-3xl md:text-4xl font-semibold text-brand-primary tracking-tight mt-3 mb-6">A Family Business<br>You Can Trust</h2>
@@ -304,7 +281,6 @@
                         From our very first customer to the hundreds we serve today, our commitment has never changed — show up on time, communicate clearly, charge fairly, and treat every home like our own. That's why our customers keep coming back and referring us to their friends and family.
                     </p>
 
-                    <!-- Values -->
                     <div class="grid grid-cols-2 gap-4">
                         <div class="flex items-start gap-3">
                             <div class="mt-0.5 w-5 h-5 bg-brand-raised/10 rounded flex items-center justify-center flex-shrink-0">
@@ -363,16 +339,13 @@
     <!-- Reviews Section -->
     <section id="reviews" class="py-20 md:py-28 bg-brand-surface">
         <div class="max-w-7xl mx-auto px-5 md:px-8">
-            <!-- Section Header -->
             <div class="text-center max-w-xl mx-auto mb-14">
                 <span class="text-xs font-semibold tracking-[0.2em] uppercase text-brand-raised">Testimonials</span>
                 <h2 class="text-3xl md:text-4xl font-semibold text-brand-primary tracking-tight mt-3 mb-4">What Our Customers Say</h2>
                 <p class="text-brand-tertiary leading-relaxed">Don't just take our word for it — hear from the homeowners and businesses we've served.</p>
             </div>
 
-            <!-- Reviews Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-                <!-- Review 1 -->
                 <div class="testimonial-card bg-white rounded-lg p-6 border border-brand-border">
                     <div class="flex gap-0.5 mb-4">
                         <iconify-icon icon="lucide:star" class="text-yellow-400 text-sm"></iconify-icon>
@@ -393,7 +366,6 @@
                     </div>
                 </div>
 
-                <!-- Review 2 -->
                 <div class="testimonial-card bg-white rounded-lg p-6 border border-brand-border">
                     <div class="flex gap-0.5 mb-4">
                         <iconify-icon icon="lucide:star" class="text-yellow-400 text-sm"></iconify-icon>
@@ -414,7 +386,6 @@
                     </div>
                 </div>
 
-                <!-- Review 3 -->
                 <div class="testimonial-card bg-white rounded-lg p-6 border border-brand-border">
                     <div class="flex gap-0.5 mb-4">
                         <iconify-icon icon="lucide:star" class="text-yellow-400 text-sm"></iconify-icon>
@@ -435,7 +406,6 @@
                     </div>
                 </div>
 
-                <!-- Review 4 -->
                 <div class="testimonial-card bg-white rounded-lg p-6 border border-brand-border">
                     <div class="flex gap-0.5 mb-4">
                         <iconify-icon icon="lucide:star" class="text-yellow-400 text-sm"></iconify-icon>
@@ -456,7 +426,6 @@
                     </div>
                 </div>
 
-                <!-- Review 5 -->
                 <div class="testimonial-card bg-white rounded-lg p-6 border border-brand-border">
                     <div class="flex gap-0.5 mb-4">
                         <iconify-icon icon="lucide:star" class="text-yellow-400 text-sm"></iconify-icon>
@@ -477,7 +446,6 @@
                     </div>
                 </div>
 
-                <!-- Review 6 -->
                 <div class="testimonial-card bg-white rounded-lg p-6 border border-brand-border">
                     <div class="flex gap-0.5 mb-4">
                         <iconify-icon icon="lucide:star" class="text-yellow-400 text-sm"></iconify-icon>
@@ -499,7 +467,6 @@
                 </div>
             </div>
 
-            <!-- More reviews summary -->
             <div class="mt-10 text-center">
                 <div class="inline-flex flex-wrap justify-center gap-3">
                     <span class="bg-white text-xs text-brand-tertiary px-3 py-1.5 rounded-full border border-brand-border">leaking sink repair <span class="text-brand-primary font-medium">2</span></span>
@@ -572,7 +539,6 @@
     <footer class="bg-brand-base py-12 md:py-16">
         <div class="max-w-7xl mx-auto px-5 md:px-8">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
-                <!-- Brand -->
                 <div>
                     <div class="flex items-center gap-2 mb-4">
                         <div class="w-9 h-9 bg-brand-raised rounded-lg flex items-center justify-center">
@@ -586,7 +552,6 @@
                     <p class="text-sm text-zinc-500 leading-relaxed max-w-xs">Family-owned plumbing company serving California's Central Valley. Available 24/7 for all your plumbing needs.</p>
                 </div>
 
-                <!-- Contact -->
                 <div>
                     <h4 class="text-xs font-semibold text-zinc-400 tracking-[0.15em] uppercase mb-4">Contact</h4>
                     <div class="space-y-3">
@@ -605,7 +570,6 @@
                     </div>
                 </div>
 
-                <!-- Quick Links -->
                 <div>
                     <h4 class="text-xs font-semibold text-zinc-400 tracking-[0.15em] uppercase mb-4">Quick Links</h4>
                     <div class="space-y-3">
@@ -617,7 +581,6 @@
                 </div>
             </div>
 
-            <!-- Bottom bar -->
             <div class="pt-8 border-t border-zinc-800 flex flex-col md:flex-row items-center justify-between gap-4">
                 <p class="text-xs text-zinc-600">&copy; 2025 All Flow Plumbing, Inc. All rights reserved.</p>
                 <p class="text-xs text-zinc-600">Made By <a href="https://wa.me/+8801911739472" class="text-zinc-400 hover:text-white transition-colors duration-150 underline underline-offset-2">Ibne Nahian</a></p>
@@ -634,29 +597,15 @@
     </div>
 
     <script>
-        // Navbar scroll effect
-        const navbar = document.getElementById('navbar');
+        // Floating mobile CTA — show after scrolling past hero
         const floatingCta = document.getElementById('floatingCta');
-        let lastScroll = 0;
 
         window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-
-            // Navbar background
-            if (currentScroll > 60) {
-                navbar.classList.add('nav-scrolled');
-            } else {
-                navbar.classList.remove('nav-scrolled');
-            }
-
-            // Floating CTA on mobile
-            if (currentScroll > 500) {
+            if (window.pageYOffset > 500) {
                 floatingCta.style.transform = 'translateY(0)';
             } else {
                 floatingCta.style.transform = 'translateY(100%)';
             }
-
-            lastScroll = currentScroll;
         });
 
         // Mobile menu toggle
@@ -677,7 +626,6 @@
             }
         });
 
-        // Close mobile menu on link click
         document.querySelectorAll('.mobile-link').forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
@@ -687,7 +635,7 @@
             });
         });
 
-        // Smooth scroll offset for fixed nav
+        // Smooth scroll with nav offset
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 const target = document.querySelector(this.getAttribute('href'));
@@ -700,8 +648,7 @@
             });
         });
 
-        // Intersection Observer for fade-in animations
-        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -40px 0px' };
+        // Intersection Observer for card fade-in
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -710,9 +657,8 @@
                     observer.unobserve(entry.target);
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-        // Observe service cards and testimonial cards
         document.querySelectorAll('.service-card, .testimonial-card').forEach((el, i) => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(20px)';
